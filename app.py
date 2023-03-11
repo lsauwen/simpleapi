@@ -5,4 +5,4 @@ app = Flask(__name__)
 def index():
     return json.dumps({'name': 'alice',
                        'email': 'alice@outlook.com'})
-app.run()
+gunicorn --bind=0.0.0.0 --timeout 600 app:app
